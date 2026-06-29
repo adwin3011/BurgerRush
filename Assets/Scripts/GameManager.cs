@@ -5,10 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI finalScoreText;
     public GameObject gameOverPanel;
 
     private int score = 0;
-    private float timeLeft = 60f;
+    private float timeLeft = 5f;
     private bool gameOver = false;
 
     void Update()
@@ -18,13 +19,12 @@ public class GameManager : MonoBehaviour
             timeLeft -= Time.deltaTime;
             timerText.text = "Time: " + Mathf.CeilToInt(timeLeft);
 
-            if (timeLeft <= 0)
+            if (Mathf.CeilToInt(timeLeft) <= 0)
             {
-                timeLeft = 0;
                 gameOver = true;
                 timerText.text = "Time: 0";
-                if (gameOverPanel != null)
-                    gameOverPanel.SetActive(true);
+                gameOverPanel.SetActive(true);
+                finalScoreText.text = "Final Score: " + score;
             }
         }
     }
