@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
 
     private int score = 0;
-    private float timeLeft = 5f;
+    private float timeLeft = 60f;
     private bool gameOver = false;
 
     void Update()
